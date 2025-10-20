@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayur Sonkusare | Bioinformatics Scientist</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary: #10b981;
+            --secondary: #1e293b;
+            --accent: #3b82f6;
+            --text: #f8fafc;
+            --dark: #0f172a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+        
+        .section {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 5rem 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, -15px); }
+            100% { transform: translate(0, 0px); }
+        }
+        
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            height: 300px;
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--primary);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+        
+        .contact-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            z-index: 1000;
+            transform: translateX(150%);
+            transition: transform 0.5s ease;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.success {
+            background: #10b981;
+        }
+        
+        .notification.error {
+            background: #ef4444;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary);
+            border-radius: 2rem;
+            margin: 0.25rem;
+            font-size: 0.875rem;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .publication-item {
+            border-left: 3px solid var(--primary);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .certificate-link {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .certificate-link:hover {
+            color: #34d399;
+            transform: translateY(-2px);
+        }
+        
+        .social-link {
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-slate-900/80 backdrop-blur-md py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-bold">
+                <span class="text-green-500">M</span>ayur
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-slate-800 absolute top-full left-0 w-full hidden">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="section relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-green-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="container relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4">
+                        Hi, I'm <span class="text-green-500">Mayur Sonkusare</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-slate-300">
+                        Bioinformatics Scientist & Research Professional
+                    </h2>
+                    <p class="text-lg text-slate-400 mb-8 max-w-lg">
+                        Results-driven Bioinformatics and Microbiology professional with expertise in structural proteomics, 
+                        molecular biology, and drug discovery. Skilled in computational modeling and advanced in-silico 
+                        techniques to drive precision medicine and therapeutic research.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#research" class="btn btn-primary">
+                            View My Research
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="relative flex justify-center">
+                    <!-- Profile Image Container -->
+                    <div class="relative w-80 h-80 rounded-full overflow-hidden border-4 border-green-500/30 floating shadow-2xl shadow-green-500/20">
+                        <!-- Updated with your specific image path -->
+                        <img src="/images/profile.jpg" alt="Mayur Sonkusare" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                        
+                        <!-- Fallback in case image doesn't load -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center hidden">
+                            <i class="fas fa-dna text-white text-6xl"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-green-500/20 rounded-full z-0 animate-pulse"></div>
+                    <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-500/20 rounded-full z-0 animate-pulse" style="animation-delay: 1s;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-slate-400 hover:text-white transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-slate-800/50">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-lg text-slate-300 mb-6">
+                        I'm a passionate Bioinformatics scientist with a strong foundation in Microbiology and expertise 
+                        in computational biology, structural proteomics, and drug discovery. My work focuses on leveraging 
+                        in-silico techniques to advance precision medicine and therapeutic research.
+                    </p>
+                    <p class="text-lg text-slate-300 mb-6">
+                        With experience at Cellworks Research, I've developed skills in automating bioinformatics workflows, 
+                        quality control of genomic data, and supporting therapeutic decision-making through computational analysis.
+                    </p>
+                    <p class="text-lg text-slate-300 mb-8">
+                        When I'm not analyzing genomic data or running molecular simulations, I enjoy contributing to 
+                        scientific publications and staying updated with the latest advancements in bioinformatics and 
+                        computational biology.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <!-- UPDATED RESUME PATH -->
+                        <a href="/resume/Mayur_Sonkusare.pdf" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-download mr-2"></i> Download Resume
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fas fa-paper-plane mr-2"></i> Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="card text-center">
+                        <i class="fas fa-dna text-4xl text-green-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Bioinformatics</h3>
+                        <p class="text-slate-400">Genomic Analysis, Structural Biology, Drug Discovery</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fas fa-microscope text-4xl text-green-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Microbiology</h3>
+                        <p class="text-slate-400">Molecular Biology, Cancer Genomics, ICH Guidelines</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fas fa-laptop-code text-4xl text-green-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Computational</h3>
+                        <p class="text-slate-400">Python, Linux, MySQL, Data Analysis</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fas fa-project-diagram text-4xl text-green-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Research</h3>
+                        <p class="text-slate-400">Publications, Presentations, Scientific Writing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Core Competencies</h3>
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold mb-4 text-green-400">Bioinformatics & Molecular Biology</h4>
+                        <div class="flex flex-wrap">
+                            <span class="skill-tag">Microbiology</span>
+                            <span class="skill-tag">Structural Proteomics</span>
+                            <span class="skill-tag">Molecular Biology</span>
+                            <span class="skill-tag">Drug Discovery</span>
+                            <span class="skill-tag">Cancer Genomics</span>
+                            <span class="skill-tag">ICH Guidelines</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold mb-4 text-green-400">Protein Analysis & Modeling</h4>
+                        <div class="flex flex-wrap">
+                            <span class="skill-tag">BLAST</span>
+                            <span class="skill-tag">PyMOL</span>
+                            <span class="skill-tag">Chimera</span>
+                            <span class="skill-tag">Discovery Studio</span>
+                            <span class="skill-tag">MODELLER</span>
+                            <span class="skill-tag">SwissModel</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-green-400">Molecular Docking</h4>
+                        <div class="flex flex-wrap">
+                            <span class="skill-tag">AutoDock</span>
+                            <span class="skill-tag">AutoDock Vina</span>
+                            <span class="skill-tag">PyRx</span>
+                            <span class="skill-tag">iGEMDOCK</span>
+                            <span class="skill-tag">ClusPro</span>
+                            <span class="skill-tag">HADDOCK</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Technical Expertise</h3>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold mb-4 text-green-400">Programming & Databases</h4>
+                        <div class="flex flex-wrap">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Microsoft Office</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold mb-4 text-green-400">Interaction & Network Analysis</h4>
+                        <div class="flex flex-wrap">
+                            <span class="skill-tag">Cytoscape</span>
+                            <span class="skill-tag">STRING Database</span>
+                            <span class="skill-tag">SwissADME</span>
+                            <span class="skill-tag">EnrichR</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-green-400">Bioinformatics Databases</h4>
+                        <div class="flex flex-wrap">
+                            <span class="skill-tag">NCBI</span>
+                            <span class="skill-tag">PubChem</span>
+                            <span class="skill-tag">DrugBank</span>
+                            <span class="skill-tag">Ensembl</span>
+                            <span class="skill-tag">UniProt</span>
+                            <span class="skill-tag">PDB</span>
+                            <span class="skill-tag">PDBsum</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section bg-slate-800/50">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="timeline-item">
+                    <div class="card">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold">Associate Scientist</h3>
+                                <p class="text-green-500 font-medium">Cellworks Research India Pvt. Ltd</p>
+                            </div>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full">Feb 2025 - Present</span>
+                        </div>
+                        <ul class="text-slate-400 list-disc list-inside space-y-2">
+                            <li>Writing SOP for Boston Gene report capture and portal integration enabling single-click execution</li>
+                            <li>Automated Ventura product grouping using Python to generate formatted Excel outputs</li>
+                            <li>Led QC for Tempus Automation reports and validated automated inputs</li>
+                            <li>Streamlined 1,000+ page patient reports by adding hyperlinks for key sections</li>
+                            <li>Authored Step 4 optimization document to improve Master Regulator Identification accuracy</li>
+                            <li>Ensured accurate capture of 278 cancer indications in portal QC project</li>
+                            <li>Validated therapy assignment workflows to support physician treatment decision-making</li>
+                            <li>Extracted patient-specific genomic data from multiple NGS reports</li>
+                            <li>Debugged and resolved multi-step simulation failures via logs and database analysis</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="card">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold">Intern (R&D)</h3>
+                                <p class="text-green-500 font-medium">Cellworks Research India Pvt. Ltd.</p>
+                            </div>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full">Aug 2024 - Feb 2025</span>
+                        </div>
+                        <ul class="text-slate-400 list-disc list-inside space-y-2">
+                            <li>Trained in 7-step company workflow for debugging process issues</li>
+                            <li>Mapped pathways and genes to optimize BioAssembly code</li>
+                            <li>Adopted Jira Agile Scrum / Kanban workflows to support product management</li>
+                            <li>Served as a step holder for Master Regulator Identification (Step 4)</li>
+                            <li>Supported external order simulations and therapeutic impact analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="section">
+        <div class="container">
+            <h2 class="section-title">Research & Publications</h2>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-green-400">Research Project</h3>
+                <div class="card">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-bold">In-silico screening and interaction study of known compound derivatives vs F-Actin</h4>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full">Dec 2024 - Jun 2025</span>
+                    </div>
+                    <ul class="text-slate-400 list-disc list-inside space-y-2 mb-4">
+                        <li>Performed virtual screening of known compounds, molecular docking (AutoDock Vina), and MD simulations (GROMACS)</li>
+                        <li>Conducted ADMET/toxicity prediction (SwissADME, PKCSM) and pathway/network analysis (STRING, Cytoscape, Enrichr)</li>
+                        <li>Identified stable ofloxacin derivatives with strong F-actin binding</li>
+                        <li>Generated insights into actin-drug interactions and potential therapeutic targets</li>
+                    </ul>
+                    <!-- UPDATED CERTIFICATE LINK -->
+                    <a href="/Project/certificate of CEBS.pdf" target="_blank" class="certificate-link flex items-center text-green-400 hover:text-green-300">
+                        <i class="fas fa-certificate mr-2"></i>
+                        <span>Certificate Awarded - Click to View</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-green-400">Publications</h3>
+                <div class="space-y-6">
+                    <div class="publication-item">
+                        <h4 class="text-lg font-bold mb-2">Compendium of Research Insights of Life Student, Volume-2</h4>
+                        <p class="text-slate-400 mb-2">ISBN: 978-81-947154-5-0</p>
+                        <p class="text-slate-300">Topic: Methemoglobinemia Diseases</p>
+                        <!-- UPDATED PUBLICATION LINK -->
+                        <a href="/Publication/Compendium of RESEARCH INSIGHTS OF LIFE STUDENT -Volume 2.pdf" target="_blank" class="text-green-400 hover:text-green-300 mt-2 inline-block">
+                            <i class="fas fa-external-link-alt mr-1"></i> View Publication
+                        </a>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4 class="text-lg font-bold mb-2">Compendium of Research Insights of Life Student, Volume-3</h4>
+                        <p class="text-slate-400 mb-2">ISBN: 978-93-91342-27-2</p>
+                        <p class="text-slate-300">Topic: Overview of Zika Virus</p>
+                        <!-- UPDATED PUBLICATION LINK -->
+                        <a href="/Publication/Compendium of RESEARCH INSIGHTS OF LIFE STUDENT -Volume 3.pdf" target="_blank" class="text-green-400 hover:text-green-300 mt-2 inline-block">
+                            <i class="fas fa-external-link-alt mr-1"></i> View Publication
+                        </a>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4 class="text-lg font-bold mb-2">Research and Development in Pharmaceutical Science, Volume-1</h4>
+                        <p class="text-slate-400 mb-2">ISBN: 978-81-951982-4-5</p>
+                        <p class="text-slate-300">Topic: Effective pharmaceutical drug treatment against SARS-CoV-2 Infection</p>
+                        <!-- UPDATED PUBLICATION LINK -->
+                        <a href="/Publication/Research-and-Development-in-Pharmaceutical-Science-Volume-I (1).pdf" target="_blank" class="text-green-400 hover:text-green-300 mt-2 inline-block">
+                            <i class="fas fa-external-link-alt mr-1"></i> View Publication
+                        </a>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4 class="text-lg font-bold mb-2">Poster Presentation in Sciforum</h4>
+                        <p class="text-slate-300">Topic: Study of SUM159 Cell Lines Untreated and Treated with the drug Mebendazole and its effect on Transcriptome Level (RNA-Seq Analysis)</p>
+                        <!-- UPDATED POSTER LINK -->
+                        <a href="/Publication/poster present.pdf" target="_blank" class="text-green-400 hover:text-green-300 mt-2 inline-block">
+                            <i class="fas fa-external-link-alt mr-1"></i> View Presentation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section bg-slate-800/50">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="card text-center">
+                    <div class="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-graduation-cap text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">M.Sc. in Bioinformatics</h3>
+                    <p class="text-green-400 font-medium mb-2">D Y Patil School of Biotechnology and Bioinformatics</p>
+                    <p class="text-slate-400 mb-2">2022 - 2024</p>
+                    <p class="text-slate-300 font-semibold">CGPA: 9.13 / 10</p>
+                </div>
+                
+                <div class="card text-center">
+                    <div class="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-university text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">B.Sc. in Microbiology</h3>
+                    <p class="text-green-400 font-medium mb-2">B.K. Birla College of Arts, Science & Commerce</p>
+                    <p class="text-slate-400 mb-2">2019 - 2022</p>
+                    <p class="text-slate-300 font-semibold">CGPA: 9.75 / 10</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Let's Collaborate</h3>
+                    <p class="text-lg text-slate-300 mb-8">
+                        I'm always interested in new research opportunities and collaborations in bioinformatics, 
+                        drug discovery, and computational biology. Whether you have a project in mind or just want 
+                        to discuss scientific research, I'd love to hear from you.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-green-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p class="text-slate-400">mayursonkusare011@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-green-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Phone</h4>
+                                <p class="text-slate-400">+91 88501 99868</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-green-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Location</h4>
+                                <p class="text-slate-400">Mumbai, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4 mt-8">
+                        <!-- FIXED LINKEDIN LINK -->
+                        <a href="https://www.linkedin.com/in/mayursonkusare2000/" target="_blank" class="social-link w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center hover:bg-green-500 transition-colors">
+                            <i class="fab fa-linkedin text-green-500 hover:text-white"></i>
+                        </a>
+                        <a href="#" class="social-link w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center hover:bg-green-500 transition-colors">
+                            <i class="fab fa-researchgate text-green-500 hover:text-white"></i>
+                        </a>
+                        <a href="#" class="social-link w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center hover:bg-green-500 transition-colors">
+                            <i class="fab fa-google-scholar text-green-500 hover:text-white"></i>
+                        </a>
+                        <a href="#" class="social-link w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center hover:bg-green-500 transition-colors">
+                            <i class="fab fa-orcid text-green-500 hover:text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <!-- Updated Form with your Formspree URL -->
+                    <form id="contact-form" action="https://formspree.io/f/xnngyaoa" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" name="name" placeholder="Your Name" class="contact-input" required>
+                            <input type="email" name="email" placeholder="Your Email" class="contact-input" required>
+                        </div>
+                        <input type="text" name="_subject" placeholder="Message Subject" class="contact-input" value="New message from portfolio website">
+                        <textarea name="message" placeholder="Your Message" rows="5" class="contact-input" required></textarea>
+                        <button type="submit" class="btn btn-primary w-full">
+                            <i class="fas fa-paper-plane mr-2"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-8 border-t border-slate-800">
+        <div class="container text-center">
+            <p class="text-slate-400">
+                &copy; 2025 Mayur Sonkusare. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Notification -->
+    <div id="notification" class="notification hidden">
+        <span id="notification-text"></span>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize GSAP and ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Menu toggle for mobile
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // Animate cards on scroll
+        gsap.utils.toArray('.card').forEach(card => {
+            gsap.fromTo(card, 
+                { y: 50, opacity: 0 }, 
+                { 
+                    y: 0, 
+                    opacity: 1, 
+                    duration: 0.8, 
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            );
+        });
+        
+        // Animate timeline items
+        gsap.utils.toArray('.timeline-item').forEach(item => {
+            gsap.fromTo(item, 
+                { x: -50, opacity: 0 }, 
+                { 
+                    x: 0, 
+                    opacity: 1, 
+                    duration: 0.8, 
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            );
+        });
+        
+        // Contact form submission with Formspree
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notification-text');
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+                const formData = new FormData(form);
+                
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Success
+                    notification.className = 'notification success show';
+                    notificationText.textContent = 'Message sent successfully! I will get back to you soon.';
+                    form.reset();
+                } else {
+                    // Error from Formspree
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || 'Failed to send message');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                notification.className = 'notification error show';
+                notificationText.textContent = 'Sorry, there was an error sending your message. Please try again or email me directly.';
+            } finally {
+                // Reset button state
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Hide notification after 5 seconds
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 5000);
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

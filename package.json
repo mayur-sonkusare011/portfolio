@@ -1,0 +1,18 @@
+{
+  "name": "mayur_portfolio_node",
+  "version": "1.0.0",
+  "description": "Animated portfolio for Mayur Sonkusare - Node/Express/EJS + GSAP + Tailwind (CDN) + Nodemailer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.3"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

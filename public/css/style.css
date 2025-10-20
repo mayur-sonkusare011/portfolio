@@ -1,0 +1,42 @@
+/* Empty - Tailwind via CDN used for styles. Add custom CSS here if desired. */
+
+/* Added responsive resume embed styles */
+.resume-container { width: 100%; display: block; overflow: hidden; border-radius: 0.5rem; }
+.resume-embed { width: 100%; height: 80vh; min-height: 480px; border: none; border-radius: 0.5rem; background: #0b1220; }
+
+/* If you want the resume to be narrower on large screens, change max-width on the parent section (.max-w-6xl) in Tailwind classes */
+@media (max-width: 768px) {
+  .resume-embed { height: 60vh; min-height: 360px; }
+}
+
+
+/* --- Animated portfolio style additions --- */
+
+/* background and glass */
+body { background: radial-gradient( circle at 10% 30%, rgba(63,94,251,0.12), transparent 10% ),
+                       radial-gradient( circle at 90% 70%, rgba(252,70,107,0.06), transparent 8% ),
+                       linear-gradient(180deg,#020617,#071229); color: #e6eef8; }
+
+.card, .glass { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.04); box-shadow: 0 8px 30px rgba(2,6,23,0.6); backdrop-filter: blur(8px); border-radius: 12px; }
+
+/* hero typed */
+.typed { display: inline-block; margin-left: 0.6rem; color: #a6f0ff; font-weight:600; }
+
+/* floating cards */
+@keyframes floaty { 0% { transform: translateY(0px)} 50% { transform: translateY(-8px)} 100% { transform: translateY(0px)} }
+.project-card { animation: floaty 6s ease-in-out infinite; }
+
+/* particle overlay sits behind content */
+#tsparticles { pointer-events: none; }
+
+/* modal styling */
+#resumeModal { display: flex; }
+
+/* responsiveness */
+@media (max-width: 768px) {
+  .resume-embed { height: 60vh; min-height: 360px; }
+  .typed { display:block; margin-top:8px;}
+}
+
+/* small helpers */
+.btn-ghost { background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.06); padding:8px 12px; border-radius:8px; }
