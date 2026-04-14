@@ -945,13 +945,14 @@
                 <p class="text-slate-400 max-w-2xl mx-auto text-lg">Committed to continuous learning and staying at the forefront of clinical research, data management, and drug safety standards.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Horizontal Scroll Container -->
+            <div class="flex overflow-x-auto space-x-6 pb-12 pt-4 px-2 sm:px-4 snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] cursor-grab active:cursor-grabbing">
                 
                 <!-- Certificate 1 -->
-                <div class="card hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(59,130,246,0.15)] hover:border-blue-500/30 border border-transparent transition-all duration-300 group flex flex-col h-full relative overflow-hidden">
-                    <div class="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-500/20 transition-all duration-500"></div>
+                <div class="card flex-none w-[85vw] md:w-[26rem] h-[28rem] snap-center hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(59,130,246,0.15)] hover:border-blue-500/30 border border-slate-700/50 bg-slate-800/60 backdrop-blur-md transition-all duration-300 group flex flex-col relative overflow-hidden rounded-2xl">
+                    <div class="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-500/20 transition-all duration-500 pointer-events-none"></div>
                     
-                    <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors z-10">
+                    <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20 group-hover:bg-blue-500/30 transition-colors z-10 shrink-0">
                         <i class="fas fa-database text-blue-400 text-2xl group-hover:scale-110 transition-transform"></i>
                     </div>
                     
@@ -960,9 +961,9 @@
                     <p class="text-slate-400 text-sm mb-6 z-10"><i class="far fa-calendar-alt mr-2"></i>Completed: August 2025</p>
                     
                     <div class="flex flex-wrap gap-2 mb-8 z-10">
-                        <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300 border border-slate-700">CDM</span>
-                        <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300 border border-slate-700">EDC Systems</span>
-                        <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300 border border-slate-700">Medidata Rave</span>
+                        <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">CDM</span>
+                        <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">EDC Systems</span>
+                        <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">Medidata Rave</span>
                     </div>
                     
                     <div class="mt-auto pt-4 border-t border-slate-700/50 z-10">
@@ -973,10 +974,10 @@
                 </div>
 
                 <!-- Certificate 2 -->
-                <div class="card hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(59,130,246,0.15)] hover:border-blue-500/30 border border-transparent transition-all duration-300 group flex flex-col h-full relative overflow-hidden">
-                    <div class="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-500/20 transition-all duration-500"></div>
+                <div class="card flex-none w-[85vw] md:w-[26rem] h-[28rem] snap-center hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(59,130,246,0.15)] hover:border-blue-500/30 border border-slate-700/50 bg-slate-800/60 backdrop-blur-md transition-all duration-300 group flex flex-col relative overflow-hidden rounded-2xl">
+                    <div class="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-500/20 transition-all duration-500 pointer-events-none"></div>
                     
-                    <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors z-10">
+                    <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20 group-hover:bg-blue-500/30 transition-colors z-10 shrink-0">
                         <i class="fas fa-shield-alt text-blue-400 text-2xl group-hover:scale-110 transition-transform"></i>
                     </div>
                     
@@ -985,9 +986,9 @@
                     <p class="text-slate-400 text-sm mb-6 z-10"><i class="far fa-calendar-alt mr-2"></i>Completed: October 2025</p>
                     
                     <div class="flex flex-wrap gap-2 mb-8 z-10">
-                        <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300 border border-slate-700">PV</span>
-                        <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300 border border-slate-700">Drug Safety</span>
-                        <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300 border border-slate-700">Argus</span>
+                        <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">PV</span>
+                        <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">Drug Safety</span>
+                        <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">Argus</span>
                     </div>
                     
                     <div class="mt-auto pt-4 border-t border-slate-700/50 z-10">
@@ -998,10 +999,10 @@
                 </div>
 
                 <!-- Certificate 3 -->
-                <div class="card hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(59,130,246,0.15)] hover:border-blue-500/30 border border-transparent transition-all duration-300 group flex flex-col h-full relative overflow-hidden">
-                    <div class="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-500/20 transition-all duration-500"></div>
+                <div class="card flex-none w-[85vw] md:w-[26rem] h-[28rem] snap-center hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(59,130,246,0.15)] hover:border-blue-500/30 border border-slate-700/50 bg-slate-800/60 backdrop-blur-md transition-all duration-300 group flex flex-col relative overflow-hidden rounded-2xl">
+                    <div class="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-500/20 transition-all duration-500 pointer-events-none"></div>
                     
-                    <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors z-10">
+                    <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20 group-hover:bg-blue-500/30 transition-colors z-10 shrink-0">
                         <i class="fas fa-heartbeat text-blue-400 text-2xl group-hover:scale-110 transition-transform"></i>
                     </div>
                     
@@ -1010,9 +1011,9 @@
                     <p class="text-slate-400 text-sm mb-6 z-10"><i class="far fa-calendar-alt mr-2"></i>Completed: December 2025</p>
                     
                     <div class="flex flex-wrap gap-2 mb-8 z-10">
-                        <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300 border border-slate-700">ICH-GCP</span>
-                        <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300 border border-slate-700">Regulatory</span>
-                        <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300 border border-slate-700">Ethics</span>
+                        <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">ICH-GCP</span>
+                        <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">Regulatory</span>
+                        <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">Ethics</span>
                     </div>
                     
                     <div class="mt-auto pt-4 border-t border-slate-700/50 z-10">
