@@ -29,46 +29,41 @@
     <style>
         /* Swiper Custom Styles */
         .swiper-slide {
-            opacity: 0.5;
-            transition: opacity 0.3s ease, filter 0.3s ease;
-            filter: blur(3px);
+            opacity: 0.6;
+            transition: all 0.3s ease-in-out;
+            filter: blur(2px) brightness(0.8);
+            transform: scale(0.95);
         }
         .swiper-slide-active {
             opacity: 1;
-            filter: blur(0);
+            filter: blur(0) brightness(1);
+            transform: scale(1.05);
+            z-index: 10;
         }
         .swiper-slide-active .cert-card {
             border-color: rgba(59, 130, 246, 0.5);
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
         }
-        .custom-swiper-scrollbar {
-            height: 48px;
-            background: rgba(15, 23, 42, 0.8);
-            border-radius: 9999px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
+        /* Hover overrides */
+        .swiper-slide:hover {
+            opacity: 1;
+            filter: blur(0) brightness(1);
+            transform: scale(1.02);
+            z-index: 20;
+        }
+        .swiper-slide-active:hover {
+            transform: scale(1.08);
         }
         .custom-swiper-scrollbar .swiper-scrollbar-drag {
-            height: 100%;
             background: linear-gradient(90deg, #3b82f6, #a855f7);
             border-radius: 9999px;
-            cursor: grab;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
+            height: 100%;
         }
-        .custom-swiper-scrollbar .swiper-scrollbar-drag:active {
-            cursor: grabbing;
+        .swiper-pagination-bullet {
+            background-color: #94a3b8;
         }
-        .custom-swiper-scrollbar .swiper-scrollbar-drag::before {
-            content: '<<< DRAG >>>';
-            white-space: nowrap;
-            pointer-events: none;
+        .swiper-pagination-bullet-active {
+            background-color: #3b82f6;
         }
         :root {
             --primary: #00e1ff;
@@ -984,99 +979,80 @@
     </section>
 
     <!-- Certificates Section -->
-    <section id="certificates" class="section">
+    <section id="certificates" class="section bg-gradient-to-b from-slate-900 to-slate-950">
         <div class="container">
-            <div class="text-center mb-12">
-                <h2 class="section-title text-center mb-4">Certifications & Professional Development</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto text-lg">Committed to continuous learning and staying at the forefront of clinical research, data management, and drug safety standards.</p>
+            <div class="mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">Certifications</h2>
+                <p class="text-slate-400 max-w-2xl text-lg">Committed to continuous learning and staying at the forefront of clinical research, data management, and drug safety standards.</p>
             </div>
             
-            <!-- Swiper Carousel Container -->
-            <div class="relative w-full overflow-hidden pb-8 pt-4">
-                <div class="swiper certSwiper w-full md:w-3/4 lg:w-[60%] mx-auto pb-4">
-                    <div class="swiper-wrapper">
+                        <!-- Swiper Carousel Container -->
+            <div class="relative w-full overflow-hidden pb-12 pt-4">
+                <div class="swiper certSwiper w-full px-4">
+                    <div class="swiper-wrapper flex items-center">
                         
-                        <!-- Certificate 1 -->
-                        <div class="swiper-slide w-full">
-                            <div class="cert-card bg-slate-800/80 backdrop-blur-md border border-slate-700/50 rounded-2xl p-6 md:p-8 flex flex-col h-full relative overflow-hidden transition-all duration-300 w-full aspect-[4/3] group mx-auto">
-                                <div class="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-500/20 transition-all duration-500 pointer-events-none"></div>
-                                
-                                <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20 transition-colors z-10 shrink-0">
-                                    <i class="fas fa-database text-blue-400 text-2xl group-hover:scale-110 transition-transform"></i>
-                                </div>
-                                
-                                <h3 class="text-xl md:text-2xl font-bold mb-2 text-white z-10">Clinical Data Management</h3>
-                                <p class="text-blue-400 font-medium mb-1 text-sm md:text-base z-10">Association of Clinical Professionals</p>
-                                <p class="text-slate-400 text-xs md:text-sm mb-6 z-10"><i class="far fa-calendar-alt mr-2"></i>Completed: August 2025</p>
-                                
-                                <div class="flex flex-wrap gap-2 mb-4 z-10 mt-auto">
-                                    <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">CDM</span>
-                                    <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">EDC Systems</span>
-                                    <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">Medidata Rave</span>
-                                </div>
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide cursor-pointer group">
+                            <div class="cert-card bg-slate-800/80 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg overflow-hidden transition-all duration-300 relative aspect-[1.41]">
+                                <img src="https://images.unsplash.com/photo-1589330694653-efa647611efd?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="Certificate 1">
+                                <div class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300"></div>
                             </div>
                         </div>
 
-                        <!-- Certificate 2 -->
-                        <div class="swiper-slide w-full">
-                            <div class="cert-card bg-slate-800/80 backdrop-blur-md border border-slate-700/50 rounded-2xl p-6 md:p-8 flex flex-col h-full relative overflow-hidden transition-all duration-300 w-full aspect-[4/3] group mx-auto">
-                                <div class="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-500/20 transition-all duration-500 pointer-events-none"></div>
-                                
-                                <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20 transition-colors z-10 shrink-0">
-                                    <i class="fas fa-shield-alt text-blue-400 text-2xl group-hover:scale-110 transition-transform"></i>
-                                </div>
-                                
-                                <h3 class="text-xl md:text-2xl font-bold mb-2 text-white z-10">Advanced Pharmacovigilance</h3>
-                                <p class="text-blue-400 font-medium mb-1 text-sm md:text-base z-10">Global Health Organization</p>
-                                <p class="text-slate-400 text-xs md:text-sm mb-6 z-10"><i class="far fa-calendar-alt mr-2"></i>Completed: October 2025</p>
-                                
-                                <div class="flex flex-wrap gap-2 mb-4 z-10 mt-auto">
-                                    <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">PV</span>
-                                    <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">Drug Safety</span>
-                                    <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">Argus</span>
-                                </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide cursor-pointer group">
+                            <div class="cert-card bg-slate-800/80 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg overflow-hidden transition-all duration-300 relative aspect-[1.41]">
+                                <img src="https://images.unsplash.com/photo-1589330694653-efa647611efd?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="Certificate 2">
+                                <div class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300"></div>
                             </div>
                         </div>
 
-                        <!-- Certificate 3 -->
-                        <div class="swiper-slide w-full">
-                            <div class="cert-card bg-slate-800/80 backdrop-blur-md border border-slate-700/50 rounded-2xl p-6 md:p-8 flex flex-col h-full relative overflow-hidden transition-all duration-300 w-full aspect-[4/3] group mx-auto">
-                                <div class="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-500/20 transition-all duration-500 pointer-events-none"></div>
-                                
-                                <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20 transition-colors z-10 shrink-0">
-                                    <i class="fas fa-heartbeat text-blue-400 text-2xl group-hover:scale-110 transition-transform"></i>
-                                </div>
-                                
-                                <h3 class="text-xl md:text-2xl font-bold mb-2 text-white z-10">ICH-GCP Guidelines</h3>
-                                <p class="text-blue-400 font-medium mb-1 text-sm md:text-base z-10">Clinical Data Council</p>
-                                <p class="text-slate-400 text-xs md:text-sm mb-6 z-10"><i class="far fa-calendar-alt mr-2"></i>Completed: December 2025</p>
-                                
-                                <div class="flex flex-wrap gap-2 mb-4 z-10 mt-auto">
-                                    <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">ICH-GCP</span>
-                                    <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">Regulatory</span>
-                                    <span class="px-2 py-1 bg-slate-900/50 rounded-md text-xs text-slate-300 border border-slate-700/50 backdrop-blur-sm">Ethics</span>
-                                </div>
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide cursor-pointer group">
+                            <div class="cert-card bg-slate-800/80 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg overflow-hidden transition-all duration-300 relative aspect-[1.41]">
+                                <img src="https://images.unsplash.com/photo-1589330694653-efa647611efd?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="Certificate 3">
+                                <div class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300"></div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="swiper-slide cursor-pointer group">
+                            <div class="cert-card bg-slate-800/80 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg overflow-hidden transition-all duration-300 relative aspect-[1.41]">
+                                <img src="https://images.unsplash.com/photo-1589330694653-efa647611efd?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="Certificate 4">
+                                <div class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300"></div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 5 -->
+                        <div class="swiper-slide cursor-pointer group">
+                            <div class="cert-card bg-slate-800/80 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg overflow-hidden transition-all duration-300 relative aspect-[1.41]">
+                                <img src="https://images.unsplash.com/photo-1589330694653-efa647611efd?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="Certificate 5">
+                                <div class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300"></div>
                             </div>
                         </div>
 
                     </div>
+                    <!-- Pagination Dots -->
+                    <div class="swiper-pagination !bottom-0 pb-2"></div>
                 </div>
 
                 <!-- Custom Control Bar -->
-                <div class="max-w-4xl mx-auto px-4 lg:px-6 mt-4 flex items-center justify-between border border-slate-700/30 bg-slate-800/60 backdrop-blur-xl rounded-2xl py-3 shadow-xl">
+                <div class="max-w-7xl mx-auto px-4 mt-6 flex flex-col md:flex-row items-center justify-between border border-slate-700/30 bg-slate-800/60 backdrop-blur-xl rounded-2xl py-3 shadow-xl gap-4">
                     
-                    <!-- Drag Slider -->
-                    <div class="flex-1 custom-swiper-scrollbar mr-4 md:mr-8 hidden sm:block"></div>
+                    <!-- Drag Slider / Progress Bar on Left -->
+                    <div class="flex-1 w-full md:w-auto custom-swiper-scrollbar h-2 bg-slate-700 rounded-full overflow-hidden"></div>
 
-                    <div class="flex items-center space-x-4 ml-auto sm:ml-0 overflow-visible">
-                        <!-- Right Navigation Arrow -->
-                        <button class="cert-next-btn w-12 h-12 flex items-center justify-center rounded-full bg-slate-700/50 hover:bg-slate-600/80 text-white transition-colors shrink-0 focus:outline-none">
-                            <i class="fas fa-arrow-right text-lg"></i>
+                    <!-- Right Side Controls -->
+                    <div class="flex items-center space-x-3 w-full md:w-auto justify-end">
+                        <button class="cert-prev-btn w-10 h-10 flex items-center justify-center rounded-full bg-slate-700/50 hover:bg-slate-600/80 text-white transition-colors shrink-0 focus:outline-none">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <button class="cert-next-btn w-10 h-10 flex items-center justify-center rounded-full bg-slate-700/50 hover:bg-slate-600/80 text-white transition-colors shrink-0 focus:outline-none">
+                            <i class="fas fa-arrow-right"></i>
                         </button>
 
-                        <!-- Action Button -->
-                        <a href="#" id="cert-action-btn" target="_blank" class="px-5 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white font-bold shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all shrink-0 flex items-center whitespace-nowrap text-sm md:text-base">
-                            View Certificate <i class="fas fa-external-link-alt ml-2 text-xs md:text-sm text-blue-100"></i>
+                        <a href="#" id="cert-action-btn" target="_blank" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white font-bold shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all shrink-0 flex items-center text-sm">
+                            View Certificate <i class="fas fa-external-link-alt ml-2 text-blue-100"></i>
                         </a>
                     </div>
                 </div>
@@ -1340,38 +1316,37 @@
             }
         });
 
-        // Initialize Swiper.js for Certificates Cover Flow
+                // Initialize Swiper.js for Certificates
         document.addEventListener('DOMContentLoaded', function () {
             if (typeof Swiper !== 'undefined') {
                 const certLinks = [
-                    '#link-to-cdm-certificate', 
-                    '#link-to-pv-certificate', 
-                    '#link-to-ich-gcp-certificate'
+                    '#link-1', '#link-2', '#link-3', '#link-4', '#link-5'
                 ];
                 
                 const certSwiper = new Swiper('.certSwiper', {
-                    effect: 'coverflow',
+                    effect: 'slide',
                     grabCursor: true,
                     centeredSlides: true,
-                    slidesPerView: 'auto',
                     speed: 600,
-                    coverflowEffect: {
-                        rotate: 5,
-                        stretch: 0,
-                        depth: 250,
-                        modifier: 1,
-                        slideShadows: false,
+                    spaceBetween: 30,
+                    breakpoints: {
+                        320: { slidesPerView: 1.2, spaceBetween: 20 },
+                        768: { slidesPerView: 3, spaceBetween: 30 },
+                        1024: { slidesPerView: 5, spaceBetween: 40 }
                     },
-                    keyboard: {
-                        enabled: true,
-                    },
+                    keyboard: { enabled: true },
                     navigation: {
                         nextEl: '.cert-next-btn',
+                        prevEl: '.cert-prev-btn',
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                        dynamicBullets: true
                     },
                     scrollbar: {
                         el: '.custom-swiper-scrollbar',
-                        draggable: true,
-                        snapOnRelease: true
+                        draggable: true
                     },
                     on: {
                         slideChange: function () {
