@@ -1170,7 +1170,7 @@
         });
 
         // Animate cards on scroll
-        gsap.utils.toArray('.card').forEach(card => {
+        gsap.utils.toArray('.card:not(#contact .card)').forEach(card => {
             gsap.fromTo(card,
                 { y: 50, opacity: 0 },
                 {
