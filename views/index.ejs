@@ -34,16 +34,19 @@
             filter: blur(2px) brightness(0.8);
             transform: scale(0.95);
         }
+
         .swiper-slide-active {
             opacity: 1;
             filter: blur(0) brightness(1);
             transform: scale(1.05);
             z-index: 10;
         }
+
         .swiper-slide-active .cert-card {
             border-color: rgba(59, 130, 246, 0.5);
             box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
         }
+
         /* Hover overrides */
         .swiper-slide:hover {
             opacity: 1;
@@ -51,20 +54,25 @@
             transform: scale(1.02);
             z-index: 20;
         }
+
         .swiper-slide-active:hover {
             transform: scale(1.08);
         }
+
         .custom-swiper-scrollbar .swiper-scrollbar-drag {
             background: linear-gradient(90deg, #3b82f6, #a855f7);
             border-radius: 9999px;
             height: 100%;
         }
+
         .swiper-pagination-bullet {
             background-color: #94a3b8;
         }
+
         .swiper-pagination-bullet-active {
             background-color: #3b82f6;
         }
+
         :root {
             --primary: #00e1ff;
             --secondary: #1e293b;
@@ -983,51 +991,77 @@
         <div class="container">
             <div class="mb-12">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">Certifications</h2>
-                <p class="text-slate-400 max-w-2xl text-lg">Committed to continuous learning and staying at the forefront of clinical research, data management, and drug safety standards.</p>
+                <p class="text-slate-400 max-w-2xl text-lg">Committed to continuous learning and staying at the
+                    forefront of clinical research, data management, and drug safety standards.</p>
             </div>
-            
-                        <!-- Swiper Carousel Container -->
+
+            <!-- Swiper Carousel Container -->
             <div class="relative w-full overflow-hidden pb-12 pt-4">
                 <div class="swiper certSwiper w-full px-4">
                     <div class="swiper-wrapper flex items-center">
-                        
+
                         <!-- Slide 1 -->
                         <div class="swiper-slide cursor-pointer group">
-                            <div class="cert-card bg-slate-800/80 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg overflow-hidden transition-all duration-300 relative">
-                                <img src="/images/ms_certificate.jpeg" class="w-full h-auto block transition-transform duration-300 group-hover:scale-105" alt="Master of Science Bioinformatics Certificate">
-                                <div class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300"></div>
+                            <div
+                                class="cert-card bg-slate-800/80 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg overflow-hidden transition-all duration-300 relative">
+                                <img src="/images/ms_certificate.jpeg"
+                                    class="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
+                                    alt="Master of Science Bioinformatics Certificate">
+                                <div
+                                    class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300">
+                                </div>
                             </div>
                         </div>
 
                         <!-- Slide 2 -->
                         <div class="swiper-slide cursor-pointer group">
-                            <div class="cert-card bg-slate-800/80 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg overflow-hidden transition-all duration-300 relative">
-                                <img src="/images/BSc Degree Certificate.jpeg" class="w-full h-auto block transition-transform duration-300 group-hover:scale-105" alt="BSc Degree Certificate">
-                                <div class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300"></div>
+                            <div
+                                class="cert-card bg-slate-800/80 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg overflow-hidden transition-all duration-300 relative">
+                                <img src="/images/BSc Degree Certificate.jpeg"
+                                    class="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
+                                    alt="BSc of Science Certificate">
+                                <div
+                                    class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300">
+                                </div>
                             </div>
                         </div>
 
                         <!-- Slide 3 -->
                         <div class="swiper-slide cursor-pointer group">
-                            <div class="cert-card bg-slate-800/80 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg overflow-hidden transition-all duration-300 relative">
-                                <img src="https://placehold.co/600x400/1e293b/00e1ff?text=CEBS+Certificate" class="w-full h-auto block transition-transform duration-300 group-hover:scale-105" alt="CEBS Certificate">
-                                <div class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300"></div>
+                            <div
+                                class="cert-card bg-slate-800/80 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg overflow-hidden transition-all duration-300 relative">
+                                <img src="https://placehold.co/600x400/1e293b/00e1ff?text=Certificate"
+                                    class="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
+                                    alt="Certificate 3">
+                                <div
+                                    class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300">
+                                </div>
                             </div>
                         </div>
 
                         <!-- Slide 4 -->
                         <div class="swiper-slide cursor-pointer group">
-                            <div class="cert-card bg-slate-800/80 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg overflow-hidden transition-all duration-300 relative">
-                                <img src="https://placehold.co/600x400/1e293b/00e1ff?text=Certificate" class="w-full h-auto block transition-transform duration-300 group-hover:scale-105" alt="Certificate 4">
-                                <div class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300"></div>
+                            <div
+                                class="cert-card bg-slate-800/80 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg overflow-hidden transition-all duration-300 relative">
+                                <img src="https://placehold.co/600x400/1e293b/00e1ff?text=Certificate"
+                                    class="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
+                                    alt="Certificate 4">
+                                <div
+                                    class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300">
+                                </div>
                             </div>
                         </div>
 
                         <!-- Slide 5 -->
                         <div class="swiper-slide cursor-pointer group">
-                            <div class="cert-card bg-slate-800/80 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg overflow-hidden transition-all duration-300 relative">
-                                <img src="https://placehold.co/600x400/1e293b/00e1ff?text=Certificate" class="w-full h-auto block transition-transform duration-300 group-hover:scale-105" alt="Certificate 5">
-                                <div class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300"></div>
+                            <div
+                                class="cert-card bg-slate-800/80 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg overflow-hidden transition-all duration-300 relative">
+                                <img src="https://placehold.co/600x400/1e293b/00e1ff?text=Certificate"
+                                    class="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
+                                    alt="Certificate 5">
+                                <div
+                                    class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300">
+                                </div>
                             </div>
                         </div>
 
@@ -1037,21 +1071,27 @@
                 </div>
 
                 <!-- Custom Control Bar -->
-                <div class="max-w-7xl mx-auto px-4 mt-6 flex flex-col md:flex-row items-center justify-between border border-slate-700/30 bg-slate-800/60 backdrop-blur-xl rounded-2xl py-3 shadow-xl gap-4">
-                    
+                <div
+                    class="max-w-7xl mx-auto px-4 mt-6 flex flex-col md:flex-row items-center justify-between border border-slate-700/30 bg-slate-800/60 backdrop-blur-xl rounded-2xl py-3 shadow-xl gap-4">
+
                     <!-- Drag Slider / Progress Bar on Left -->
-                    <div class="flex-1 w-full md:w-auto custom-swiper-scrollbar h-1 bg-slate-700 rounded-full overflow-hidden"></div>
+                    <div
+                        class="flex-1 w-full md:w-auto custom-swiper-scrollbar h-1 bg-slate-700 rounded-full overflow-hidden">
+                    </div>
 
                     <!-- Right Side Controls -->
                     <div class="flex items-center space-x-3 w-full md:w-auto justify-end">
-                        <button class="cert-prev-btn w-10 h-10 flex items-center justify-center rounded-full bg-slate-700/50 hover:bg-slate-600/80 text-white transition-colors shrink-0 focus:outline-none">
+                        <button
+                            class="cert-prev-btn w-10 h-10 flex items-center justify-center rounded-full bg-slate-700/50 hover:bg-slate-600/80 text-white transition-colors shrink-0 focus:outline-none">
                             <i class="fas fa-arrow-left"></i>
                         </button>
-                        <button class="cert-next-btn w-10 h-10 flex items-center justify-center rounded-full bg-slate-700/50 hover:bg-slate-600/80 text-white transition-colors shrink-0 focus:outline-none">
+                        <button
+                            class="cert-next-btn w-10 h-10 flex items-center justify-center rounded-full bg-slate-700/50 hover:bg-slate-600/80 text-white transition-colors shrink-0 focus:outline-none">
                             <i class="fas fa-arrow-right"></i>
                         </button>
 
-                        <a href="/images/ms_certificate.jpeg" id="cert-action-btn" target="_blank" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white font-bold shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all shrink-0 flex items-center text-sm">
+                        <a href="/images/ms_certificate.jpeg" id="cert-action-btn" target="_blank"
+                            class="px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white font-bold shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all shrink-0 flex items-center text-sm">
                             View Certificate <i class="fas fa-external-link-alt ml-2 text-blue-100"></i>
                         </a>
                     </div>
@@ -1109,10 +1149,13 @@
                         <!-- FIXED LINKEDIN LINK -->
                         <a href="https://www.linkedin.com/in/mayursonkusare2000/" target="_blank"
                             class="social-link inline-flex items-center space-x-3 group outline-none">
-                            <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center group-hover:bg-green-500 transition-colors">
-                                <i class="fab fa-linkedin text-lg text-green-500 group-hover:text-white transition-colors"></i>
+                            <div
+                                class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center group-hover:bg-green-500 transition-colors">
+                                <i
+                                    class="fab fa-linkedin text-lg text-green-500 group-hover:text-white transition-colors"></i>
                             </div>
-                            <span class="font-bold text-lg text-slate-300 group-hover:text-green-400 transition-colors">LinkedIn</span>
+                            <span
+                                class="font-bold text-lg text-slate-300 group-hover:text-green-400 transition-colors">LinkedIn</span>
                         </a>
                     </div>
                 </div>
@@ -1316,13 +1359,13 @@
             }
         });
 
-                // Initialize Swiper.js for Certificates
+        // Initialize Swiper.js for Certificates
         document.addEventListener('DOMContentLoaded', function () {
             if (typeof Swiper !== 'undefined') {
                 const certLinks = [
-                    '/images/ms_certificate.jpeg', '/images/BSc Degree Certificate.jpeg', '/images/certificate of CEBS.pdf', '#link-4', '#link-5'
+                    '/images/ms_certificate.jpeg', '/images/clinical_research_form.jpg', '#link-3', '#link-4', '#link-5'
                 ];
-                
+
                 const certSwiper = new Swiper('.certSwiper', {
                     effect: 'slide',
                     grabCursor: true,
