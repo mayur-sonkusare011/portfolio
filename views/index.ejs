@@ -1024,7 +1024,17 @@
             </div>
 
             <!-- Swiper Carousel Container -->
-            <div class="relative w-full overflow-hidden pb-12 pt-4">
+            <div class="relative w-full overflow-hidden pb-12 pt-4 group">
+                <!-- Side Navigation Buttons -->
+                <button
+                    class="cert-side-prev absolute left-2 md:left-6 lg:left-12 top-1/2 -translate-y-1/2 z-30 w-14 h-14 items-center justify-center rounded-full bg-slate-800/60 backdrop-blur-md border border-slate-600/50 hover:border-[#00ff88] text-white transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:text-[#00ff88] opacity-0 group-hover:opacity-100 hidden md:flex focus:outline-none">
+                    <i class="fas fa-arrow-left text-xl"></i>
+                </button>
+                <button
+                    class="cert-side-next absolute right-2 md:right-6 lg:right-12 top-1/2 -translate-y-1/2 z-30 w-14 h-14 items-center justify-center rounded-full bg-slate-800/60 backdrop-blur-md border border-slate-600/50 hover:border-[#00ff88] text-white transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:text-[#00ff88] opacity-0 group-hover:opacity-100 hidden md:flex focus:outline-none">
+                    <i class="fas fa-arrow-right text-xl"></i>
+                </button>
+
                 <div class="swiper certSwiper w-full px-4">
                     <div class="swiper-wrapper flex items-center">
 
@@ -1549,6 +1559,14 @@
                             }
                         }
                     }
+                });
+
+                // Attach custom navigation for side buttons
+                document.querySelectorAll('.cert-side-prev').forEach(btn => {
+                    btn.addEventListener('click', () => certSwiper.slidePrev());
+                });
+                document.querySelectorAll('.cert-side-next').forEach(btn => {
+                    btn.addEventListener('click', () => certSwiper.slideNext());
                 });
             }
         });
