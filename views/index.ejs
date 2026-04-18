@@ -1163,29 +1163,77 @@
                     <div class="swiper-pagination !bottom-0 pb-2"></div>
                 </div>
 
-                <!-- Custom Control Bar -->
+                <!-- Custom Modern Control Bar -->
+                <style>
+                    .modern-control-bar {
+                        background: rgba(15, 23, 42, 0.4);
+                        border: 1px solid rgba(255, 255, 255, 0.05);
+                        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255,255,255,0.1);
+                        backdrop-filter: blur(20px);
+                        -webkit-backdrop-filter: blur(20px);
+                    }
+                    .modern-scrollbar {
+                        background: rgba(255, 255, 255, 0.05);
+                        box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+                    }
+                    .custom-swiper-scrollbar .swiper-scrollbar-drag {
+                        background: linear-gradient(90deg, #00e1ff, #00ff88);
+                        box-shadow: 0 0 10px rgba(0, 225, 255, 0.5);
+                        border-radius: 9999px;
+                        height: 100%;
+                        cursor: grab;
+                    }
+                    .custom-swiper-scrollbar .swiper-scrollbar-drag:active {
+                        cursor: grabbing;
+                    }
+                    .nav-btn-modern {
+                        background: rgba(255, 255, 255, 0.05);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    }
+                    .nav-btn-modern:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                        border-color: rgba(0, 255, 136, 0.5);
+                        transform: translateY(-2px);
+                        box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
+                        color: #00ff88;
+                    }
+                    .view-cert-btn {
+                        background-size: 200% auto;
+                        background-image: linear-gradient(to right, #00e1ff 0%, #00ff88 50%, #00e1ff 100%);
+                        transition: 0.5s;
+                    }
+                    .view-cert-btn:hover {
+                        background-position: right center;
+                        box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+                        transform: translateY(-2px);
+                    }
+                </style>
                 <div
-                    class="max-w-7xl mx-auto px-4 mt-6 flex flex-col md:flex-row items-center justify-between border border-slate-700/30 bg-slate-800/60 backdrop-blur-xl rounded-2xl py-3 shadow-xl gap-4">
+                    class="modern-control-bar max-w-6xl mx-auto px-5 mt-8 flex flex-col md:flex-row items-center justify-between rounded-2xl py-4 gap-6 relative z-20">
 
                     <!-- Drag Slider / Progress Bar on Left -->
                     <div
-                        class="flex-1 w-full md:w-auto custom-swiper-scrollbar h-1 bg-slate-700 rounded-full overflow-hidden">
+                        class="flex-1 w-full md:w-auto custom-swiper-scrollbar modern-scrollbar h-2 rounded-full overflow-hidden relative group">
                     </div>
 
                     <!-- Right Side Controls -->
-                    <div class="flex items-center space-x-3 w-full md:w-auto justify-end">
+                    <div class="flex items-center space-x-4 w-full md:w-auto justify-end relative">
                         <button
-                            class="cert-prev-btn w-10 h-10 flex items-center justify-center rounded-full bg-slate-700/50 hover:bg-slate-600/80 text-white transition-colors shrink-0 focus:outline-none">
+                            class="cert-prev-btn nav-btn-modern w-11 h-11 flex items-center justify-center rounded-full text-slate-300 shrink-0 focus:outline-none">
                             <i class="fas fa-arrow-left"></i>
                         </button>
                         <button
-                            class="cert-next-btn w-10 h-10 flex items-center justify-center rounded-full bg-slate-700/50 hover:bg-slate-600/80 text-white transition-colors shrink-0 focus:outline-none">
+                            class="cert-next-btn nav-btn-modern w-11 h-11 flex items-center justify-center rounded-full text-slate-300 shrink-0 focus:outline-none">
                             <i class="fas fa-arrow-right"></i>
                         </button>
 
-                        <a href="/images/ms_certificate.jpeg" id="cert-action-btn" target="_blank"
-                            class="px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white font-bold shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all shrink-0 flex items-center text-sm">
-                            View Certificate <i class="fas fa-external-link-alt ml-2 text-blue-100"></i>
+                        <div class="h-8 w-px bg-slate-700/50 hidden md:block mx-1"></div>
+
+                        <a href="/images/Introduction to principle and parctice of clinical Research certificate.png" id="cert-action-btn" target="_blank"
+                            class="view-cert-btn px-6 py-2.5 rounded-full text-slate-900 font-bold tracking-wide shrink-0 flex items-center text-sm md:text-base group">
+                            View Certificate 
+                            <i class="fas fa-external-link-alt ml-2 opacity-80 group-hover:opacity-100 transition-opacity"></i>
                         </a>
                     </div>
                 </div>
