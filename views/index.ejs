@@ -88,10 +88,13 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -107,6 +110,18 @@
             display: flex;
             align-items: center;
             padding: 5rem 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 4rem 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: 3rem 1rem;
+            }
         }
 
         .container {
@@ -159,6 +174,19 @@
             margin-bottom: 1rem;
             position: relative;
             display: inline-block;
+            word-break: break-word;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.75rem;
+            }
         }
 
         .section-title::after {
@@ -730,6 +758,7 @@
                             <span class="skill-tag">Molecular Biology</span>
                             <span class="skill-tag">Drug Discovery</span>
                             <span class="skill-tag">Cancer Genomics</span>
+                            <span class="skill-tag">Clinical Research</span>
                         </div>
                     </div>
 
@@ -1171,7 +1200,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold">Email</h4>
-                                <p class="text-slate-400">mayursonkusare011@gmail.com</p>
+                                <p class="text-slate-400 break-all">mayursonkusare011@gmail.com</p>
                             </div>
                         </div>
 
