@@ -1577,20 +1577,16 @@
         // Initialize Swiper.js for Certificates
         document.addEventListener('DOMContentLoaded', function () {
             if (typeof Swiper !== 'undefined') {
-                const certLinks = [
-                    '/images/NIDA Certificate.jpg',
-                    '/images/Principle of Pharmacology.png',
-                    '/images/Introduction to principle and parctice of clinical Research certificate.png',
-                    '/images/ms_certificate.jpeg',
-                    '/images/BSc Degree Certificate.jpeg',
-                    '/images/CEBS_Certificate.jpg',
-                    '/images/cert_gcc_tbc_40wpm.jpg',
-                    '/images/cert_gcc_tbc_30wpm.jpg',
-                    '/images/cert_serb_karyashala.jpg',
-                    '/images/cert_19th_microbiolympiad.jpg',
-                    '/images/cert_20th_microbiolympiad.png',
-                    '/images/cert_excel_pivot.png'
-                ];
+                const updateCertLink = (swiperInstance) => {
+                    const activeSlide = swiperInstance.slides[swiperInstance.activeIndex];
+                    if (activeSlide) {
+                        const img = activeSlide.querySelector('img');
+                        const actionBtn = document.getElementById('cert-action-btn');
+                        if (img && actionBtn) {
+                            actionBtn.href = img.getAttribute('src');
+                        }
+                    }
+                };
 
                 const certSwiper = new Swiper('.certSwiper', {
                     effect: 'slide',
@@ -1618,15 +1614,17 @@
                         draggable: true
                     },
                     on: {
+                        init: function () {
+                            updateCertLink(this);
+                        },
                         slideChange: function () {
-                            const actionBtn = document.getElementById('cert-action-btn');
-                            if (actionBtn && certLinks[this.activeIndex]) {
-                                actionBtn.href = certLinks[this.activeIndex];
-                            }
+                            updateCertLink(this);
                         }
                     }
                 });
 
+                // Run update initially to ensure the link matches the starting slide
+                updateCertLink(certSwiper);
             }
         });
     </script>
